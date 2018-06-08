@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CrystalReportEngine-configuration>
+    <reportlocation>../../report_rpt</reportlocation>
+    <timeout>0</timeout>
+    <ExternalFunctionLibraryClassNames>
+    	<classname></classname>
+    </ExternalFunctionLibraryClassNames>
+    <EnableCaching>false</EnableCaching>
+</CrystalReportEngine-configuration>
+
