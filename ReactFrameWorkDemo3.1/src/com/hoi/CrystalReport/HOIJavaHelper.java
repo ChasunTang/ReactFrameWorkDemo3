@@ -46,11 +46,11 @@ public class HOIJavaHelper {
 			
 				// ****** BEGIN SET RUNTIME DATABASE CREDENTIALS ****************  
 				{
-					String connectString = "jdbc:sqlserver://10.109.247.86:1433;database=allegroB";
+					String connectString = "jdbc:sqlserver://10.109.244.123:1433;database=allegroB";
 					String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 					String JNDIName = "";
-					String userName = "chasun.tang";			// TODO: Fill in database user
-					String password = "chasun!001";		// TODO: Fill in password
+					String userName = "grs.user";			// TODO: Fill in database user
+					String password = "grsO!user";		// TODO: Fill in password
 
 					// Switch all tables on the main report and sub reports
 					CRJavaHelper.changeDataSource(clientDoc, userName, password, connectString, driverName, JNDIName);
@@ -147,9 +147,10 @@ public class HOIJavaHelper {
 	     while (itFormulaField.hasNext()) {
 	    	 IFormulaField formulaField = (IFormulaField) itFormulaField.next();
 	    	 FormulaField newFiled = (FormulaField)formulaField.clone(true);
-	    	 newFiled.setText(map.get(newFiled.getName()));
-	    	 formulaFieldController.modify(formulaField, newFiled);
-			System.out.println(newFiled.getName()+ ":" + newFiled.getText());
+	    	 if(map.containsKey(newFiled.getName())) {
+	    			 newFiled.setText(map.get(newFiled.getName()));
+	    			 formulaFieldController.modify(formulaField, newFiled);
+	    	 }
 		}
 
 		}
@@ -157,7 +158,6 @@ public class HOIJavaHelper {
 		for (int i = 0; i < parameterPojoList.size(); i++) {
 			ParameterPojo pojo = parameterPojoList.get(i);
 			CRJavaHelper.addDiscreteParameterValue(clientDoc, "", pojo.getParameterName(), pojo.getParameterValue());
-			System.out.println( pojo.getParameterName() + ":" + pojo.getParameterValue());
 		}
 	}
 }

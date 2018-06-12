@@ -294,13 +294,7 @@
 	    			String SeasonNM = request.getParameter("SeasonNM")==""?"'<all>'":"'"+request.getParameter("SeasonNM")+"'";
 	    			String VendorNM = request.getParameter("VendorNM")==""?"'<all>'":"'"+request.getParameter("VendorNM")+"'";
 	    			String VendorGroupNM = request.getParameter("VendorGroupNM")==""?"'<all>'":"'"+request.getParameter("VendorGroupNM")+"'";
-	    			/* System.out.println("AgentNM="+AgentNM+"\n BusinessNM="+BusinessNM+
-	    					"\n BusinessChannelNM="+BusinessChannelNM+"\n BuyerDepartmentNM="+BuyerDepartmentNM
-	    					+"\n ClaimRateNM="+ClaimRateNM+"\n ClaimRateNotExceedsNM="+ClaimRateNotExceedsNM+
-	    					"\n ClaimTypeNM="+ClaimTypeNM+"\n CountryOfOriginNM="+CountryOfOriginNM+"\n CustomerNM="+CustomerNM
-	    					+"\n CustomerAgentNM="+CustomerAgentNM+"\n MarketTypeNM="+MarketTypeNM+"\n MerchDepartmentNM="+MerchDepartmentNM
-	    					+"\n ProductGroupNM="+ProductGroupNM+"\n ProductGroupListNM="+ProductGroupListNM+"\n ReportCurrencyNM="+ReportCurrencyNM
-	    					+"\n SeasonNM="+SeasonNM+"\n VendorNM="+VendorNM +"\n VendorGroupNM="+VendorGroupNM); */
+	    			
 	    			
 	    			HashMap<String, String> formulaMap = new HashMap<String, String>();
 					formulaMap.put("Hdr_Agt_nm",AgentNM);
@@ -327,28 +321,7 @@
 				    formulaMap.put("Hdr_Version_ID","1.0");
 				    formulaMap.put("Hdr_VGP_nm",VendorGroupNM);
 				    formulaMap.put("Hdr_Vndr_nm",VendorNM); 
-				    formulaMap.put("BusinessChannel",BusinessChannelNM);
-				    formulaMap.put("Col_Amt_nm",ClaimRateNM);
-				    formulaMap.put("Col_Caption_Nm","'<all>'");
-				    formulaMap.put("Sec_Caption_NM","'<all>'");
-				    formulaMap.put("Sec_Subtotal_NM","'<all>'");
-				    formulaMap.put("agt_P0AGRCAMT_QY","'0'");
-				    formulaMap.put("agt_P0AGRCCNT_QY","'0'");
-				    formulaMap.put("agt_P0AGRVAMT_QY","'0'");
-				    formulaMap.put("agt_P0AGRVCNT_QY","'0'");
-				    formulaMap.put("agt_P0CLMAMT_QY","'0'");
-				    formulaMap.put("agt_P0NAGRCAMT_QY","'0'");
-				    formulaMap.put("agt_P0NAGRCCNT_QY","'0'");
-				    formulaMap.put("agt_P0NAGRVAMT_QY","'0'");
-				    formulaMap.put("agt_P0NAGRVCNT_QY","'0'");
-				    formulaMap.put("agt_P0SHPAMT_QY","'0'");
-				    formulaMap.put("agt_P0SHPQTY_QY","'0'");
-				    formulaMap.put("agt_P0TTLCNT_QY","'0'");			 
-				    formulaMap.put("dtl_P0CLM_PT","'0'");
-				    formulaMap.put("Filter_ClmPt","'0'");
-				    formulaMap.put("g00_POCLM_PT","'0'");
-				    formulaMap.put("g03_P0CLM_PT","'0'");
-				    formulaMap.put("Col_ClmAmt_nm","'<all>'");
+				
 	    			HOIJavaHelper.callReport(reportName, session, request, response, application, out, parameterPojoList, formulaMap); 	                	    			
 	    		} catch (Exception e) {
 	    		    out.println(e);
